@@ -109,7 +109,7 @@ header .menu-toggle {
   font-size: 20px;
 }
 header .dropdown-menu {
-  margin: 16px 0 0 0;
+  margin-top: 20px;
 }
 header .navigation {
   display: flex;
@@ -173,6 +173,8 @@ main {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  min-height: 100px;
+  overflow-y: auto;
 }
 .sidebar .event {
   border-radius: 4px;
@@ -248,6 +250,7 @@ main {
 }
 .ad-placeholder.ad-small {
   height: 100px;
+  min-height: 100px;
 }
 .ad-placeholder.ad-long {
   height: 70px;
@@ -255,6 +258,7 @@ main {
 }
 .ad-placeholder.ad-medium {
   height: 275px;
+  min-height: 275px;
 }
 
 .welcome-menu {

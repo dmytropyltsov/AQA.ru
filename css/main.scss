@@ -148,7 +148,7 @@ header {
     }
 
     .dropdown-menu {
-        margin: 16px 0 0 0;
+        margin-top: 20px;
     }
 
     .navigation {
@@ -219,6 +219,8 @@ main {
         display: flex;
         flex-direction: column;
         gap: 5px;
+        min-height: 100px;
+        overflow-y: auto;
     }
 
     .event {
@@ -309,6 +311,7 @@ main {
 
     &.ad-small {
         height: 100px;
+        min-height: 100px;
     }
 
     &.ad-long {
@@ -318,6 +321,7 @@ main {
 
     &.ad-medium {
         height: 275px;
+        min-height: 275px;
     }
 }
 
