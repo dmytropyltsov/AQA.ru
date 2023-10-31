@@ -3,13 +3,16 @@
 
 $primary-accent-color: #0996B2;
 $secondary-accent-color: #09B27A;
+$warning-color: #EB4747;
 
 $accent-gradient: linear-gradient(90deg, $primary-accent-color 0%, $secondary-accent-color 100%);
 
-$page-color: #f3f6f6;
-$block-color: #fff;
+$page-color: #F3F6F6;
+$block-color: #FFF;
+$disabled-block-color: #FAFAFA;
 $event-color: #FAFAFA;
 $light-accent-color: #F6F8F8;
+$border-color: #EBEBEB;
 
 $overlay-color: rgba(80, 80, 80, 0.5);
 
@@ -21,6 +24,7 @@ $light-text-color: #FFFFFF;
 
 $category-font: 400 16px/24px 'Roboto';
 $paragraph-font: 300 16px/24px 'Roboto';
+$string-font: 300 16px/16px 'Roboto';
 $metadata-font: 300 14px/18px 'Roboto';
 $notification-badge-font: 500 10px/14px 'Roboto';
 
@@ -28,6 +32,7 @@ $block-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
 $modal-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.10);
 
 a {
+    width: fit-content;
     font: $paragraph-font;
     text-decoration: none;
     color: $text-color;
@@ -36,6 +41,16 @@ a {
 p {
     font: $paragraph-font;
     color: $text-color;
+    margin: 0
+}
+
+ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+table {
+    border-collapse: collapse; 
 }
 
 body {
@@ -174,6 +189,14 @@ main {
     gap: 10px;
 }
 
+.page {
+    min-height: calc(100vh - 60px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .sidebar {
     width: 360px;
     box-shadow: $block-shadow;
@@ -227,7 +250,7 @@ main {
             }
         }
 
-        .metadata {
+        .info {
             display: flex;
             flex-direction: column;
             gap: 5px;
@@ -235,7 +258,6 @@ main {
             a {
                 font: $metadata-font;
                 transition: color 0.5s;
-                width: fit-content;
 
                 &.user {
                     color: $secondary-text-color;
@@ -298,14 +320,6 @@ main {
     }
 }
 
-.page {
-    min-height: calc(100vh - 60px);
-    flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
 .welcome-menu {
     display: flex;
     gap: 20px;
@@ -342,6 +356,85 @@ main {
                 color: $primary-accent-color;
             }
         }
+    }
+}
+
+table.topics {
+    width: 100%;
+
+    tr:not(:last-child) {
+        border-bottom: 1px solid $border-color;
+    }
+
+    th {
+        font: $string-font;
+        background-color: $disabled-block-color;
+        padding: 15px 20px;
+
+        &.category {
+            background: $accent-gradient;
+            color: $light-text-color;
+            text-align: left;
+            font: $paragraph-font;
+        }
+    }
+
+    td {
+        padding: 20px;
+
+        &:not(:last-child) {
+            border-right: 1px solid $border-color;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    a.title {
+        font: $category-font;
+    }
+
+    .last-answer a {
+        display: block;
+        color: $text-color;
+        font: $metadata-font;
+
+        &.time {
+            vertical-align: baseline;
+            margin-top: 5px;
+        }
+    }
+
+    a {
+        transition: color 0.5s;
+
+        &:hover {
+            color: $primary-accent-color;
+        }
+    }
+
+    p {
+        color: $secondary-text-color;
+
+        &.warning {
+            color: $warning-color;
+        }
+
+        a {
+            color: $text-color;
+        }
+
+        &.counter {
+            font: $metadata-font;
+            text-align: center;
+        }
+    }
+
+    .brand-logo {
+        height: 45px;
     }
 }
 
