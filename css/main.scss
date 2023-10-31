@@ -127,6 +127,7 @@ header {
     position: fixed;
     background-color: $block-color;
     box-shadow: $block-shadow;
+    z-index: 1;
 
     .wrapper {
         height: 50px;
@@ -199,7 +200,6 @@ main {
 
 .sidebar {
     width: 360px;
-    box-shadow: $block-shadow;
 
     .content {
         width: 360px;
@@ -208,6 +208,7 @@ main {
         border-radius: 4px 4px 0 0;
         height: calc(100vh - 60px);
         background-color: $block-color;
+        box-shadow: $block-shadow;
         position: fixed;
         display: flex;
         flex-direction: column;
@@ -359,48 +360,77 @@ main {
     }
 }
 
-table.topics {
-    width: 100%;
-
-    tr:not(:last-child) {
-        border-bottom: 1px solid $border-color;
-    }
-
-    th {
-        font: $string-font;
+.topics {
+    .header {
+        display: flex;
+        justify-content: end;
         background-color: $disabled-block-color;
-        padding: 15px 20px;
 
-        &.category {
-            background: $accent-gradient;
-            color: $light-text-color;
-            text-align: left;
-            font: $paragraph-font;
+        div {
+            padding: 15px 20px;
+            font: $string-font;
+            box-sizing: border-box;
         }
     }
+    
+    .category {
+        padding: 15px 20px;
+        background: $accent-gradient;
+        color: $light-text-color;
+        text-align: left;
+        font: $paragraph-font;
+    }
 
-    td {
-        padding: 20px;
+    .category + .topic {
+        border-top: none;
+    }
 
-        &:not(:last-child) {
-            border-right: 1px solid $border-color;
+    .topic {
+        border-top: 1px solid $border-color;
+        display: flex;
+
+        .info, .counter, .last-answer {
+            padding: 20px;
         }
 
-        .info {
+        .counter, .last-answer a {
+            font: $metadata-font;
+        }
+
+        .counter, .last-answer {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            border-left: 1px solid $border-color;
         }
     }
 
-    a.title {
-        font: $category-font;
+    .info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex: 1;
+
+        a.title {
+            font: $category-font;
+        }
+    }
+
+    .counter {
+        width: 100px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .last-answer {
+        width: 125px;
+        box-sizing: border-box;
     }
 
     .last-answer a {
         display: block;
         color: $text-color;
-        font: $metadata-font;
 
         &.time {
             vertical-align: baseline;
@@ -425,11 +455,6 @@ table.topics {
 
         a {
             color: $text-color;
-        }
-
-        &.counter {
-            font: $metadata-font;
-            text-align: center;
         }
     }
 

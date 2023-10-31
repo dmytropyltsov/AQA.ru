@@ -90,6 +90,7 @@ header {
   position: fixed;
   background-color: #FFF;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+  z-index: 1;
 }
 header .wrapper {
   height: 50px;
@@ -154,7 +155,6 @@ main {
 
 .sidebar {
   width: 360px;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
 }
 .sidebar .content {
   width: 360px;
@@ -163,6 +163,7 @@ main {
   border-radius: 4px 4px 0 0;
   height: calc(100vh - 60px);
   background-color: #FFF;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -288,66 +289,85 @@ main {
   color: #0996B2;
 }
 
-table.topics {
-  width: 100%;
-}
-table.topics tr:not(:last-child) {
-  border-bottom: 1px solid #EBEBEB;
-}
-table.topics th {
-  font: 300 16px/16px "Roboto";
+.topics .header {
+  display: flex;
+  justify-content: end;
   background-color: #FAFAFA;
-  padding: 15px 20px;
 }
-table.topics th.category {
+.topics .header div {
+  padding: 15px 20px;
+  font: 300 16px/16px "Roboto";
+  box-sizing: border-box;
+}
+.topics .category {
+  padding: 15px 20px;
   background: linear-gradient(90deg, #0996B2 0%, #09B27A 100%);
   color: #FFFFFF;
   text-align: left;
   font: 300 16px/24px "Roboto";
 }
-table.topics td {
+.topics .category + .topic {
+  border-top: none;
+}
+.topics .topic {
+  border-top: 1px solid #EBEBEB;
+  display: flex;
+}
+.topics .topic .info, .topics .topic .counter, .topics .topic .last-answer {
   padding: 20px;
 }
-table.topics td:not(:last-child) {
-  border-right: 1px solid #EBEBEB;
+.topics .topic .counter, .topics .topic .last-answer a {
+  font: 300 14px/18px "Roboto";
 }
-table.topics td .info {
+.topics .topic .counter, .topics .topic .last-answer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid #EBEBEB;
+}
+.topics .info {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  flex: 1;
 }
-table.topics a.title {
+.topics .info a.title {
   font: 400 16px/24px "Roboto";
 }
-table.topics .last-answer a {
+.topics .counter {
+  width: 100px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.topics .last-answer {
+  width: 125px;
+  box-sizing: border-box;
+}
+.topics .last-answer a {
   display: block;
   color: #0A0A0A;
-  font: 300 14px/18px "Roboto";
 }
-table.topics .last-answer a.time {
+.topics .last-answer a.time {
   vertical-align: baseline;
   margin-top: 5px;
 }
-table.topics a {
+.topics a {
   transition: color 0.5s;
 }
-table.topics a:hover {
+.topics a:hover {
   color: #0996B2;
 }
-table.topics p {
+.topics p {
   color: #505050;
 }
-table.topics p.warning {
+.topics p.warning {
   color: #EB4747;
 }
-table.topics p a {
+.topics p a {
   color: #0A0A0A;
 }
-table.topics p.counter {
-  font: 300 14px/18px "Roboto";
-  text-align: center;
-}
-table.topics .brand-logo {
+.topics .brand-logo {
   height: 45px;
 }
 
