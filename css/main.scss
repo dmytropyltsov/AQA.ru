@@ -35,6 +35,15 @@ $notification-badge-font: 500 10px/14px 'Roboto';
 $block-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
 $modal-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.10);
 
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $page-color;
+    // background: linear-gradient(0deg, rgba(243, 246, 246, 0.5), rgba(243, 246, 246, 0.5)), url('../img/background.jpg');
+    background-size: cover;
+    min-width: 300px;
+}
+
 a {
     width: fit-content;
     font: $paragraph-font;
@@ -59,14 +68,6 @@ ul {
 
 table {
     border-collapse: collapse; 
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    background-color: $page-color;
-    // background: linear-gradient(0deg, rgba(243, 246, 246, 0.5), rgba(243, 246, 246, 0.5)), url('../img/background.jpg');
-    background-size: cover;
 }
 
 .wrapper {
@@ -335,7 +336,7 @@ main {
 
 .welcome-menu {
     display: flex;
-    gap: 20px;
+    gap: 40px;
 
     .column {
         display: flex;
@@ -415,6 +416,10 @@ main {
             justify-content: center;
             align-items: center;
             border-left: 1px solid $border-color;
+
+            .details {
+                display: none;
+            }
         }
     }
 
@@ -519,6 +524,7 @@ main {
 
         .row {
             display: flex;
+            gap: 10px;
 
             .column {
                 display: flex;
@@ -558,5 +564,163 @@ footer {
 
     .copyright {
         margin: 0;
+    }
+}
+
+@media only screen and (max-width: 1080px) {
+    .welcome {
+        .header {
+            padding: 10px 15px;
+        }
+
+        .welcome-menu {
+            padding: 15px;
+        }
+    }
+
+    .welcome-menu {
+        flex-direction: column;
+        gap: 15px;
+
+        .column {
+            display: block;
+            font-size: 0;
+
+            a:not(:last-child) {
+                margin-right: 10px;
+            }
+        }
+        
+        .title {
+            display: block;
+        }
+    }
+
+    .block .welcome-menu {
+        a:not(:last-child) {
+            margin-right: 5px;
+        }
+
+        a {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: $light-accent-color;
+            border-radius: 4px;
+            margin-top: 5px;
+            transition: background-color 0.5s;
+
+            &:hover {
+                background-color: $light-active-button-color;
+                color: $text-color;
+            }
+        }
+    }
+
+    .ad-placeholder.ad-long {
+        margin: 15px;
+    }
+
+    .topics {
+        .header {
+            display: none;
+        }
+
+        .topic {
+            flex-direction: column;
+            padding: 15px;
+
+            .info {
+                gap: 5px;
+
+                &:not(:last-child) {
+                    margin-bottom: 5px;
+                }
+            }
+
+            .info, .counter, .last-answer {
+                padding: 0;
+                border-left: none;
+                width: fit-content;
+            }
+
+            .counter, .last-answer {
+                flex-direction: row;
+                margin-top: 5px;
+                color: $secondary-text-color;
+                font: $paragraph-font;
+
+                a {
+                    font: $paragraph-font;
+                }
+
+                .details {
+                    display: inline;
+                }
+            }
+
+            .last-answer {
+                .time {
+                    margin-top: 0;
+                }
+
+                i {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .topics .category {
+        padding: 10px 15px;
+    }
+
+    .summary {
+        .header {
+            padding: 10px 15px;
+        }
+
+        .content {
+            padding: 15px;
+            
+            .row {
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .wrapper {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    footer {
+        padding: 15px;
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    header {
+        .wrapper, .navigation {
+            gap: 20px;
+        }
+
+        .logo {
+            display: none;
+        }
+    }
+
+    .topics .brand-logo {
+        height: auto;
+
+        img {
+            max-width: 100%;
+        }
     }
 }
