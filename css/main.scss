@@ -651,11 +651,7 @@ footer {
                 flex-direction: row;
                 margin-top: 5px;
                 color: $secondary-text-color;
-                font: $paragraph-font;
-
-                a {
-                    font: $paragraph-font;
-                }
+                font: $metadata-font;
 
                 .details {
                     display: inline;
@@ -685,18 +681,29 @@ footer {
 
         .content {
             padding: 15px;
+            gap: 5px;
             
             .row {
                 flex-direction: column;
+                gap: 5px;
+
+                .column {
+                    gap: 5px;
+                }
             }
         }
     }
 }
 
 @media screen and (max-width: 900px) {
-    .wrapper {
-        padding-left: 15px;
-        padding-right: 15px;
+    main.wrapper {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    header .wrapper {
+        padding-left: 25px;
+        padding-right: 25px;
     }
 
     .sidebar {
@@ -710,14 +717,8 @@ footer {
 }
 
 @media screen and (max-width: 450px) {
-    header {
-        .wrapper, .navigation {
-            gap: 20px;
-        }
-
-        .logo {
-            display: none;
-        }
+    header .logo {
+        display: none;
     }
 
     .topics .brand-logo {

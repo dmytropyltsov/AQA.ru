@@ -520,10 +520,7 @@ footer .copyright {
     flex-direction: row;
     margin-top: 5px;
     color: #505050;
-    font: 300 16px/24px "Roboto";
-  }
-  .topics .topic .counter a, .topics .topic .last-answer a {
-    font: 300 16px/24px "Roboto";
+    font: 300 14px/18px "Roboto";
   }
   .topics .topic .counter .details, .topics .topic .last-answer .details {
     display: inline;
@@ -542,15 +539,24 @@ footer .copyright {
   }
   .summary .content {
     padding: 15px;
+    gap: 5px;
   }
   .summary .content .row {
     flex-direction: column;
+    gap: 5px;
+  }
+  .summary .content .row .column {
+    gap: 5px;
   }
 }
 @media screen and (max-width: 900px) {
-  .wrapper {
-    padding-left: 15px;
-    padding-right: 15px;
+  main.wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  header .wrapper {
+    padding-left: 25px;
+    padding-right: 25px;
   }
   .sidebar {
     display: none;
@@ -561,9 +567,6 @@ footer .copyright {
   }
 }
 @media screen and (max-width: 450px) {
-  header .wrapper, header .navigation {
-    gap: 20px;
-  }
   header .logo {
     display: none;
   }
