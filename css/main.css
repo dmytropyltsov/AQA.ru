@@ -477,16 +477,19 @@ footer .copyright {
   .welcome-menu .title {
     display: block;
   }
+  .welcome-menu a {
+    display: inline-block;
+  }
   .block .welcome-menu a:not(:last-child) {
     margin-right: 5px;
   }
   .block .welcome-menu a {
-    display: inline-block;
     padding: 5px 10px;
     background-color: #F6F8F8;
     border-radius: 4px;
     margin-top: 5px;
     transition: background-color 0.5s;
+    font: 300 14px/18px "Roboto";
   }
   .block .welcome-menu a:hover {
     background-color: #E6E6E6;
@@ -569,5 +572,8 @@ footer .copyright {
   }
   .topics .brand-logo img {
     max-width: 100%;
+  }
+  footer .welcome-menu a {
+    display: block;
   }
 }

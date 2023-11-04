@@ -594,6 +594,10 @@ footer {
         .title {
             display: block;
         }
+
+        a {
+            display: inline-block;
+        }
     }
 
     .block .welcome-menu {
@@ -602,12 +606,12 @@ footer {
         }
 
         a {
-            display: inline-block;
             padding: 5px 10px;
             background-color: $light-accent-color;
             border-radius: 4px;
             margin-top: 5px;
             transition: background-color 0.5s;
+            font: $metadata-font;
 
             &:hover {
                 background-color: $light-active-button-color;
@@ -722,5 +726,9 @@ footer {
         img {
             max-width: 100%;
         }
+    }
+
+    footer .welcome-menu a {
+        display: block;
     }
 }
