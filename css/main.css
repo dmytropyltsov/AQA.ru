@@ -7,6 +7,10 @@ a {
   color: #0A0A0A;
 }
 
+i {
+  color: #3C3C3C;
+}
+
 p {
   font: 300 16px/24px "Roboto";
   color: #0A0A0A;
@@ -373,6 +377,55 @@ main {
 }
 .topics .brand-logo {
   height: 45px;
+}
+
+.light-button {
+  display: flex;
+  width: 25px;
+  height: 25px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background-color: #F5F5F5;
+  transition: background-color 0.5s;
+}
+.light-button:hover {
+  background-color: #E6E6E6;
+}
+
+.summary .header {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #EBEBEB;
+}
+.summary .content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.summary .content a {
+  color: #505050;
+  transition: color 0.5s;
+}
+.summary .content a.friend {
+  color: #09B27A;
+}
+.summary .content a:hover {
+  font: 400 16px/24px "Roboto";
+}
+.summary .content .row {
+  display: flex;
+}
+.summary .content .row .column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.summary .content .details {
+  color: #505050;
 }
 
 footer {
