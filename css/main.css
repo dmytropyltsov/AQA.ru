@@ -180,6 +180,18 @@ main {
   gap: 5px;
   min-height: 100px;
   overflow-y: auto;
+  padding-right: 5px;
+}
+.sidebar ::-webkit-scrollbar {
+  width: 8px;
+}
+.sidebar ::-webkit-scrollbar-track {
+  background-color: #FAFAFA;
+  border-radius: 4px;
+}
+.sidebar ::-webkit-scrollbar-thumb {
+  background: #E6E6E6;
+  border-radius: 4px;
 }
 .sidebar .event {
   border-radius: 4px;
@@ -196,6 +208,7 @@ main {
 .sidebar .event .photo {
   background-size: cover;
   background-position: center;
+  flex-shrink: 0;
 }
 .sidebar .event .icon {
   background-color: rgba(80, 80, 80, 0.5);
