@@ -8,30 +8,78 @@ body {
   min-width: 300px;
 }
 
+h1, h2, h3, h4, h5, h6,
+p, a, ul {
+  margin: 0;
+  color: #0A0A0A;
+}
+
+h1 {
+  font: 400 24px/32px "Roboto";
+}
+
+p {
+  font: 300 16px/24px "Roboto";
+}
+
 a {
   width: fit-content;
   font: 300 16px/24px "Roboto";
   text-decoration: none;
-  color: #0A0A0A;
+  transition: color 0.5s;
+}
+a:hover {
+  color: #0996B2;
 }
 
 i {
   color: #3C3C3C;
 }
 
-p {
-  font: 300 16px/24px "Roboto";
-  color: #0A0A0A;
-  margin: 0;
-}
-
 ul {
-  margin: 0;
   padding-left: 20px;
 }
 
 table {
   border-collapse: collapse;
+}
+
+.button, .primary-button, .primary-text-button, .light-button, .light-text-button, .light-icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  transition: background-color 0.5s;
+}
+
+.icon-button, .light-icon-button {
+  width: 25px;
+  height: 25px;
+}
+
+.text-button, .primary-text-button, .light-text-button {
+  height: 35px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  font: 300 14px/14px "Roboto";
+}
+
+.light-button, .light-text-button, .light-icon-button {
+  background-color: #F5F5F5;
+  color: #0A0A0A;
+}
+.light-button:hover, .light-text-button:hover, .light-icon-button:hover {
+  background-color: #E6E6E6;
+  color: #0A0A0A;
+}
+
+.primary-button, .primary-text-button {
+  background-color: #0996B2;
+  color: #FFFFFF;
+}
+.primary-button:hover, .primary-text-button:hover {
+  background-color: #09B27A;
+  color: #FFFFFF;
 }
 
 .wrapper {
@@ -227,12 +275,11 @@ main {
 }
 .sidebar .event .info a {
   font: 300 14px/18px "Roboto";
-  transition: color 0.5s;
 }
 .sidebar .event .info a.user {
   color: #505050;
 }
-.sidebar .event .info a:hover {
+.sidebar .event .info a.user:hover {
   color: #0996B2;
 }
 .sidebar .event.event-answer {
@@ -304,12 +351,6 @@ main {
 .welcome .welcome-menu {
   padding: 20px;
 }
-.welcome .welcome-menu a {
-  transition: color 0.5s;
-}
-.welcome .welcome-menu a:hover {
-  color: #0996B2;
-}
 
 .topics .header {
   display: flex;
@@ -371,16 +412,15 @@ main {
 }
 .topics .last-answer a {
   display: block;
-  color: #0A0A0A;
 }
 .topics .last-answer a.time {
   vertical-align: baseline;
   margin-top: 5px;
 }
-.topics a {
+.topics .last-answer a i {
   transition: color 0.5s;
 }
-.topics a:hover {
+.topics .last-answer a:hover i {
   color: #0996B2;
 }
 .topics p {
@@ -389,25 +429,8 @@ main {
 .topics p.warning {
   color: #EB4747;
 }
-.topics p a {
-  color: #0A0A0A;
-}
 .topics .brand-logo {
   height: 45px;
-}
-
-.light-button {
-  display: flex;
-  width: 25px;
-  height: 25px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
-  background-color: #F5F5F5;
-  transition: background-color 0.5s;
-}
-.light-button:hover {
-  background-color: #E6E6E6;
 }
 
 .summary .header {
@@ -446,6 +469,34 @@ main {
   color: #505050;
 }
 
+.away {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF;
+  box-sizing: border-box;
+  padding: 30px;
+}
+.away .logo img {
+  height: 45px;
+}
+.away .content {
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.away p a {
+  text-decoration: underline;
+  word-break: break-all;
+}
+.away .buttons {
+  display: flex;
+  gap: 10px;
+}
+
 footer {
   padding: 20px;
   display: flex;
@@ -465,11 +516,18 @@ footer .logo img {
 footer p, footer a {
   color: #FFFFFF;
 }
+footer a:hover {
+  color: #FFFFFF;
+}
 footer .copyright {
   margin: 0;
 }
 
 @media only screen and (max-width: 1080px) {
+  header .wrapper, main.wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   .welcome .header {
     padding: 10px 15px;
   }
@@ -561,22 +619,18 @@ footer .copyright {
   .summary .content .row .column {
     gap: 5px;
   }
-}
-@media screen and (max-width: 900px) {
-  main.wrapper {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  header .wrapper {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-  .sidebar {
-    display: none;
-  }
   footer {
     padding: 15px;
     gap: 15px;
+  }
+}
+@media screen and (max-width: 900px) {
+  header .wrapper, main.wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .sidebar {
+    display: none;
   }
 }
 @media screen and (max-width: 450px) {
@@ -588,6 +642,9 @@ footer .copyright {
   }
   .topics .brand-logo img {
     max-width: 100%;
+  }
+  .away {
+    padding: 15px;
   }
   footer .welcome-menu a {
     display: block;

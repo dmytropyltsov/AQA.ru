@@ -29,11 +29,13 @@ $text-color: #0A0A0A;
 $secondary-text-color: #505050;
 $light-text-color: #FFFFFF;
 
+$notification-badge-font: 500 10px/14px 'Roboto';
+$h1-font: 400 24px/32px 'Roboto';
 $category-font: 400 16px/24px 'Roboto';
 $paragraph-font: 300 16px/24px 'Roboto';
 $string-font: 300 16px/16px 'Roboto';
 $metadata-font: 300 14px/18px 'Roboto';
-$notification-badge-font: 500 10px/14px 'Roboto';
+$button-font: 300 14px/14px 'Roboto';
 
 $block-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
 $modal-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.10);
@@ -47,30 +49,98 @@ body {
 	min-width: 300px;
 }
 
+h1, h2, h3, h4, h5, h6,
+p, a, ul {
+	margin: 0;
+	color: $text-color;
+}
+
+h1 {
+	font: $h1-font;
+}
+
+p {
+	font: $paragraph-font;
+}
+
 a {
 	width: fit-content;
 	font: $paragraph-font;
 	text-decoration: none;
-	color: $text-color;
+	transition: color 0.5s;
+
+	&:hover {
+		color: $primary-accent-color;
+	}
 }
 
 i {
 	color: $icon-color;
 }
 
-p {
-	font: $paragraph-font;
-	color: $text-color;
-	margin: 0
-}
-
 ul {
-	margin: 0;
 	padding-left: 20px;
 }
 
 table {
 	border-collapse: collapse; 
+}
+
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 4px;
+	transition: background-color 0.5s;
+}
+
+.icon-button {
+	width: 25px;
+	height: 25px;
+}
+
+.text-button {
+	height: 35px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	font: $button-font;
+}
+
+.light-button {
+	@extend .button;
+	background-color: $light-button-color;
+	color: $text-color;
+
+	&:hover {
+		background-color: $light-active-button-color;
+		color: $text-color;
+	}
+}
+
+.primary-button {
+	@extend .button;
+	background-color: $primary-accent-color;
+	color: $light-text-color;
+
+	&:hover {
+		background-color: $secondary-accent-color;
+		color: $light-text-color;
+	}
+}
+
+.light-icon-button {
+	@extend .light-button;
+	@extend .icon-button;
+}
+
+.light-text-button {
+	@extend .light-button;
+	@extend .text-button;
+}
+
+.primary-text-button {
+	@extend .primary-button;
+	@extend .text-button;
 }
 
 .wrapper {
@@ -288,14 +358,13 @@ main {
 
 			a {
 				font: $metadata-font;
-				transition: color 0.5s;
 
 				&.user {
 					color: $secondary-text-color;
-				}
 
-				&:hover {
-					color: $primary-accent-color;
+					&:hover {
+						color: $primary-accent-color;
+					}
 				}
 			}
 		}
@@ -381,14 +450,6 @@ main {
 
 	.welcome-menu {
 		padding: 20px;
-
-		a {
-			transition: color 0.5s;
-	
-			&:hover {
-				color: $primary-accent-color;
-			}
-		}
 	}
 }
 
@@ -466,18 +527,17 @@ main {
 
 	.last-answer a {
 		display: block;
-		color: $text-color;
 
 		&.time {
 			vertical-align: baseline;
 			margin-top: 5px;
 		}
-	}
 
-	a {
-		transition: color 0.5s;
+		i {
+			transition: color 0.5s;
+		}
 
-		&:hover {
+		&:hover i {
 			color: $primary-accent-color;
 		}
 	}
@@ -488,29 +548,10 @@ main {
 		&.warning {
 			color: $warning-color;
 		}
-
-		a {
-			color: $text-color;
-		}
 	}
 
 	.brand-logo {
 		height: 45px;
-	}
-}
-
-.light-button {
-	display: flex;
-	width: 25px;
-	height: 25px;
-	justify-content: center;
-	align-items: center;
-	border-radius: 4px;
-	background-color: $light-button-color;
-	transition: background-color 0.5s;
-
-	&:hover {
-		background-color: $light-active-button-color;
 	}
 }
 
@@ -559,6 +600,38 @@ main {
 	}
 }
 
+.away {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: $block-color;
+	box-sizing: border-box;	
+	padding: 30px;
+
+	.logo img {
+		height: 45px;
+	}
+
+	.content {
+		max-width: 700px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+	}
+
+	p a {
+		text-decoration: underline;
+		word-break: break-all;
+	}
+
+	.buttons {
+		display: flex;
+		gap: 10px;
+	}
+}
+
 footer {
 	padding: 20px;
 	display: flex;
@@ -581,12 +654,21 @@ footer {
 		color: $light-text-color;
 	}
 
+	a:hover {
+		color: $light-text-color;
+	}
+
 	.copyright {
 		margin: 0;
 	}
 }
 
 @media only screen and (max-width: 1080px) {
+	header .wrapper, main.wrapper {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
 	.welcome {
 		.header {
 			padding: 10px 15px;
@@ -712,26 +794,21 @@ footer {
 			}
 		}
 	}
-}
-
-@media screen and (max-width: 900px) {
-	main.wrapper {
-		padding-left: 10px;
-		padding-right: 10px;
-	}
-
-	header .wrapper {
-		padding-left: 25px;
-		padding-right: 25px;
-	}
-
-	.sidebar {
-		display: none;
-	}
 
 	footer {
 		padding: 15px;
 		gap: 15px;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	header .wrapper, main.wrapper {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.sidebar {
+		display: none;
 	}
 }
 
@@ -746,6 +823,10 @@ footer {
 		img {
 			max-width: 100%;
 		}
+	}
+
+	.away {
+		padding: 15px;
 	}
 
 	footer .welcome-menu a {
