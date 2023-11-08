@@ -44,6 +44,11 @@ table {
   border-collapse: collapse;
 }
 
+hr {
+  border-top: 1px solid #EBEBEB;
+  border-bottom: none;
+}
+
 .button, .primary-button, .primary-text-button, .light-button, .light-text-button, .light-icon-button {
   display: flex;
   justify-content: center;
@@ -104,17 +109,21 @@ table {
 .dropdown-menu.show {
   display: flex;
 }
-.dropdown-menu li {
-  transition: background-color 0.5s;
-}
-.dropdown-menu li a {
+.dropdown-menu a {
   display: block;
+  width: 100%;
+  box-sizing: border-box;
   padding: 5px 20px;
   text-wrap: nowrap;
   text-decoration: none;
+  transition: background-color 0.5s;
 }
-.dropdown-menu li:hover {
+.dropdown-menu a:hover {
   background-color: #F6F8F8;
+  color: #0A0A0A;
+}
+.dropdown-menu hr {
+  margin: 5px 20px;
 }
 
 .badge {
@@ -178,6 +187,7 @@ header .user {
   display: flex;
   gap: 10px;
   align-items: center;
+  position: relative;
 }
 header .user .photo {
   width: 30px;
@@ -188,6 +198,29 @@ header .user .photo {
 }
 header .user #user-menu-toggle {
   font-size: 16px;
+}
+header #user-menu {
+  right: 0;
+}
+header #user-menu .info {
+  padding: 5px 20px;
+}
+header #user-menu .username {
+  font: 400 16px/24px "Roboto";
+  margin-bottom: 5px;
+}
+header #user-menu .account {
+  font: 300 14px/18px "Roboto";
+}
+header #user-menu .account i {
+  color: #09B27A;
+  background: linear-gradient(90deg, #0996B2 0%, #09B27A 100%);
+  background-clip: unset;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+header #user-menu .account span {
+  font: 400 14px/18px "Roboto";
 }
 
 main {

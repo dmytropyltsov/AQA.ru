@@ -1,7 +1,11 @@
 let mainMenu = document.getElementById('main-menu');
-
 document.getElementById('main-menu-toggle').addEventListener('click', function() {
 	mainMenu.classList.toggle('show');
+});
+
+let userMenu = document.getElementById('user-menu');
+document.getElementById('user-menu-toggle').addEventListener('click', function() {
+	userMenu.classList.toggle('show');
 });
 
 window.onclick = function(event) {

@@ -35,6 +35,7 @@ $category-font: 400 16px/24px 'Roboto';
 $paragraph-font: 300 16px/24px 'Roboto';
 $string-font: 300 16px/16px 'Roboto';
 $metadata-font: 300 14px/18px 'Roboto';
+$regular-metadata-font: 400 14px/18px 'Roboto';
 $button-font: 300 14px/14px 'Roboto';
 
 $block-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
@@ -84,6 +85,11 @@ ul {
 
 table {
 	border-collapse: collapse; 
+}
+
+hr {
+    border-top: 1px solid #EBEBEB;
+    border-bottom: none;
 }
 
 .button {
@@ -166,19 +172,23 @@ table {
 		display: flex;
 	}
 
-	li {
+	a {
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 5px 20px;
+		text-wrap: nowrap;
+		text-decoration: none;
 		transition: background-color 0.5s;
-
-		a {
-			display: block;
-			padding: 5px 20px;
-			text-wrap: nowrap;
-			text-decoration: none;
-		}
 
 		&:hover {
 			background-color: $light-accent-color;
+			color: $text-color;
 		}
+	}
+
+	hr {
+		margin: 5px 20px;
 	}
 }
 
@@ -249,6 +259,7 @@ header {
 		display: flex;
 		gap: 10px;
 		align-items: center;
+		position: relative;
 
 		.photo {
 			width: 30px;
@@ -261,6 +272,35 @@ header {
 		#user-menu-toggle {
 			font-size: 16px;
 		}    
+	}
+
+	#user-menu {
+		right: 0;
+
+		.info {
+			padding: 5px 20px;
+		}
+
+		.username {
+			font: $category-font;
+			margin-bottom: 5px;
+		}
+
+		.account {
+			font: $metadata-font;
+
+			i {
+				color: $secondary-accent-color;
+				background: $accent-gradient;
+				background-clip: unset;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+
+			span {
+				font: $regular-metadata-font;
+			}
+		}
 	}
 }
 
