@@ -841,6 +841,36 @@ footer {
 	}
 }
 
+.breadcrumbs {
+	padding: 15px 20px;
+
+	&, div {
+		font-size: 0;
+	}
+
+	div, p {
+		display: inline-block;
+	}
+
+	p, a {	
+		font: $string-font;
+		line-height: 25px;
+	}
+
+	a, i {
+		color: $secondary-text-color;
+	}
+
+	a:hover {
+		color: $primary-accent-color;
+	}
+
+	i {
+		font-size: 14px;
+		margin: 0 5px;
+	}
+}
+
 @media screen and (max-width: 900px) {
 	header .wrapper, main.wrapper {
 		padding-left: 10px;

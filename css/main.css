@@ -657,6 +657,30 @@ footer .copyright {
     gap: 15px;
   }
 }
+.breadcrumbs {
+  padding: 15px 20px;
+}
+.breadcrumbs, .breadcrumbs div {
+  font-size: 0;
+}
+.breadcrumbs div, .breadcrumbs p {
+  display: inline-block;
+}
+.breadcrumbs p, .breadcrumbs a {
+  font: 300 16px/16px "Roboto";
+  line-height: 25px;
+}
+.breadcrumbs a, .breadcrumbs i {
+  color: #505050;
+}
+.breadcrumbs a:hover {
+  color: #0996B2;
+}
+.breadcrumbs i {
+  font-size: 14px;
+  margin: 0 5px;
+}
+
 @media screen and (max-width: 900px) {
   header .wrapper, main.wrapper {
     padding-left: 10px;
