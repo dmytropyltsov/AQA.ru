@@ -49,7 +49,7 @@ hr {
   border-bottom: none;
 }
 
-.button, .primary-button, .primary-text-button, .light-button, .light-text-button, .light-icon-button {
+.button, .primary-button, .primary-icon-button, .topic-management .page-menu-toggle, .primary-text-button, .light-button, .light-text-button, .light-icon-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,9 +58,11 @@ hr {
   border: none;
   outline: none;
   cursor: pointer;
+  font: 300 14px/14px "Roboto";
+  user-select: none;
 }
 
-.icon-button, .light-icon-button {
+.icon-button, .primary-icon-button, .topic-management .page-menu-toggle, .light-icon-button {
   width: 25px;
   height: 25px;
 }
@@ -69,7 +71,6 @@ hr {
   height: 35px;
   padding: 10px 20px;
   box-sizing: border-box;
-  font: 300 14px/14px "Roboto";
 }
 
 .light-button, .light-text-button, .light-icon-button {
@@ -81,11 +82,13 @@ hr {
   color: #0A0A0A;
 }
 
-.primary-button, .primary-text-button {
+.primary-button, .primary-icon-button, .topic-management .page-menu-toggle, .primary-text-button {
   background-color: #0996B2;
+}
+.primary-button, .primary-icon-button, .topic-management .page-menu-toggle, .primary-text-button, .primary-button i, .primary-icon-button i, .topic-management .page-menu-toggle i, .primary-text-button i {
   color: #FFFFFF;
 }
-.primary-button:hover, .primary-text-button:hover {
+.primary-button:hover, .primary-icon-button:hover, .topic-management .page-menu-toggle:hover, .primary-text-button:hover {
   background-color: #09B27A;
   color: #FFFFFF;
 }
@@ -108,6 +111,8 @@ hr {
   background-color: #FFF;
   border-radius: 4px;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  user-select: none;
+  z-index: 1;
 }
 .dropdown-menu.show {
   display: flex;
@@ -242,14 +247,14 @@ main {
   gap: 10px;
 }
 
-.sidebar ::-webkit-scrollbar, .topic-menu ::-webkit-scrollbar {
+.sidebar ::-webkit-scrollbar, .topic-menu ::-webkit-scrollbar, .page-selector ::-webkit-scrollbar {
   width: 8px;
 }
-.sidebar ::-webkit-scrollbar-track, .topic-menu ::-webkit-scrollbar-track {
+.sidebar ::-webkit-scrollbar-track, .topic-menu ::-webkit-scrollbar-track, .page-selector ::-webkit-scrollbar-track {
   background-color: #FAFAFA;
   border-radius: 4px;
 }
-.sidebar ::-webkit-scrollbar-thumb, .topic-menu ::-webkit-scrollbar-thumb {
+.sidebar ::-webkit-scrollbar-thumb, .topic-menu ::-webkit-scrollbar-thumb, .page-selector ::-webkit-scrollbar-thumb {
   background: #E6E6E6;
   border-radius: 4px;
 }
@@ -334,7 +339,6 @@ main {
 
 .block {
   border-radius: 4px;
-  overflow: hidden;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
   background-color: #FFF;
 }
@@ -708,6 +712,45 @@ footer .copyright {
 }
 .topic-menu ul.show {
   display: block;
+}
+
+.topic-management {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.topic-management .navigation, .topic-management .actions {
+  display: flex;
+  gap: 10px;
+}
+.topic-management .light-icon-button, .topic-management .primary-icon-button, .topic-management .page-menu-toggle {
+  width: 35px;
+  height: 35px;
+}
+.topic-management .page-selector {
+  position: relative;
+}
+.topic-management .page-menu-toggle {
+  box-sizing: border-box;
+  width: auto;
+  height: 35px;
+  padding: 10px;
+  gap: 10px;
+}
+.topic-management .page-menu-toggle:active .pages {
+  display: block;
+}
+.topic-management .page-menu {
+  left: 0;
+  margin-top: 10px;
+  padding: 0;
+  gap: 0;
+  max-height: 174px;
+  overflow-y: auto;
+}
+.topic-management .page-menu li:not(:last-child) {
+  border-bottom: 1px solid #EBEBEB;
 }
 
 @media screen and (max-width: 900px) {

@@ -32,6 +32,16 @@ document.getElementById('topic-menu-toggle').addEventListener('click', function(
 	topicMenu.classList.toggle('show');
 });
 
+document.querySelectorAll('.page-menu-toggle').forEach(toggle => {
+	toggle.addEventListener('click', function(event) {
+		let pageMenu = event.currentTarget.closest('.page-selector').querySelector('.page-menu');
+		if (!pageMenu.classList.contains('show')) {
+			closeDropdownMenus();
+		}
+		pageMenu.classList.toggle('show');
+	});
+});
+
 window.onclick = function(event) {
 	if (!event.target.closest('.menu-toggle')) {
 		closeDropdownMenus();
