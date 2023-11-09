@@ -23,6 +23,15 @@ document.getElementById('user-menu-toggle').addEventListener('click', function()
 	userMenu.classList.toggle('show');
 });
 
+let topicMenu = document.getElementById('topic-menu');
+let topicMenuToggle = document.getElementById('topic-menu-toggle');
+let topicMenuIcon = topicMenuToggle.querySelector('i');
+document.getElementById('topic-menu-toggle').addEventListener('click', function() {
+	topicMenuIcon.classList.toggle('bi-chevron-up');
+	topicMenuIcon.classList.toggle('bi-chevron-down');
+	topicMenu.classList.toggle('show');
+});
+
 window.onclick = function(event) {
 	if (!event.target.closest('.menu-toggle')) {
 		closeDropdownMenus();

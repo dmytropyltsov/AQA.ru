@@ -55,6 +55,9 @@ hr {
   align-items: center;
   border-radius: 4px;
   transition: background-color 0.5s;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .icon-button, .light-icon-button {
@@ -239,6 +242,18 @@ main {
   gap: 10px;
 }
 
+.sidebar ::-webkit-scrollbar, .topic-menu ::-webkit-scrollbar {
+  width: 8px;
+}
+.sidebar ::-webkit-scrollbar-track, .topic-menu ::-webkit-scrollbar-track {
+  background-color: #FAFAFA;
+  border-radius: 4px;
+}
+.sidebar ::-webkit-scrollbar-thumb, .topic-menu ::-webkit-scrollbar-thumb {
+  background: #E6E6E6;
+  border-radius: 4px;
+}
+
 .sidebar {
   width: 360px;
 }
@@ -262,17 +277,6 @@ main {
   min-height: 100px;
   overflow-y: auto;
   padding-right: 5px;
-}
-.sidebar ::-webkit-scrollbar {
-  width: 8px;
-}
-.sidebar ::-webkit-scrollbar-track {
-  background-color: #FAFAFA;
-  border-radius: 4px;
-}
-.sidebar ::-webkit-scrollbar-thumb {
-  background: #E6E6E6;
-  border-radius: 4px;
 }
 .sidebar .event {
   border-radius: 4px;
@@ -470,6 +474,7 @@ main {
   padding: 15px 20px;
   display: flex;
   justify-content: space-between;
+  gap: 15px;
   border-bottom: 1px solid #EBEBEB;
 }
 .summary .content {
@@ -679,6 +684,30 @@ footer .copyright {
 .breadcrumbs i {
   font-size: 14px;
   margin: 0 5px;
+}
+
+.topic-menu .header {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+.topic-menu ul {
+  list-style: none;
+  padding: 0;
+  max-height: 230px;
+  overflow-y: auto;
+  display: none;
+}
+.topic-menu ul li {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  border-top: 1px solid #EBEBEB;
+}
+.topic-menu ul.show {
+  display: block;
 }
 
 @media screen and (max-width: 900px) {
