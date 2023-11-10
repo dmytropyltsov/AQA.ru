@@ -754,9 +754,47 @@ footer .copyright {
 .answer .header .answer-info .answer-id:hover {
   color: #0996B2;
 }
+.answer .content .reply {
+  padding: 15px;
+  background-color: #F6F8F8;
+  border-radius: 4px;
+  border-left: 5px solid #E8EDEE;
+}
+.answer .content .author {
+  display: block;
+  text-decoration: underline;
+  color: #0A0A0A;
+}
+.answer .content .author:hover {
+  color: #0996B2;
+}
 .answer .signature {
   padding-top: 20px;
   border-top: 1px solid #EBEBEB;
+  opacity: 75%;
+}
+.answer .content .reply:not(:first-child), .answer .content p:not(:first-child), .answer .signature .reply:not(:first-child), .answer .signature p:not(:first-child) {
+  margin-top: 15px;
+}
+.answer .content .reply:not(:last-child), .answer .content p:not(:last-child), .answer .signature .reply:not(:last-child), .answer .signature p:not(:last-child) {
+  margin-bottom: 15px;
+}
+.answer .content .image, .answer .signature .image {
+  width: 160px;
+  height: 120px;
+  border-radius: 4px;
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  flex-flow: row;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.answer .content a, .answer .signature a {
+  color: #0996B2;
+}
+.answer .content a:hover, .answer .signature a:hover {
+  text-decoration: underline;
 }
 .answer .footer {
   padding-top: 20px;
@@ -989,6 +1027,10 @@ footer .copyright {
   }
   .answer .header .metrics {
     margin-left: -65px;
+  }
+  .answer .content .image, .answer .signature .image {
+    width: 100px;
+    height: 75px;
   }
   .related-topics .content .ad-placeholder {
     display: none;

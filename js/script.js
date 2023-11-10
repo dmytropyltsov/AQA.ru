@@ -42,6 +42,15 @@ document.querySelectorAll('.page-menu-toggle').forEach(toggle => {
 	});
 });
 
+document.querySelectorAll('.likes .show-more').forEach(toggle => {
+	toggle.addEventListener('click', function(event) {
+		event.preventDefault();
+		let hiddenLikes = event.currentTarget.closest('.likes').querySelector('.hidden-likes');
+		event.currentTarget.style.display = 'none';
+		hiddenLikes.classList.toggle('show');
+	});
+});
+
 window.onclick = function(event) {
 	if (!event.target.closest('.menu-toggle')) {
 		closeDropdownMenus();
